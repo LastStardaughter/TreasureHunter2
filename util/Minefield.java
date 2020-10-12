@@ -7,7 +7,6 @@ import java.util.HashSet;
 public class Minefield {
     private Set<Integer> minesx = new HashSet<Integer>(), minesy = new HashSet<Integer>();
     private ArrayList<Coord> mines = new ArrayList<Coord>();
-    private boolean toss; //Throwaway return value from Set.add()
 
     public Minefield(int[][] list){
         for (int[] mine : list) {
@@ -17,8 +16,8 @@ public class Minefield {
 
     public void add(Coord mine){
         //We store sets of which coords even HAVE mines for later optimizations.
-        toss=minesx.add(mine.x);
-        toss=minesy.add(mine.y);
+        minesx.add(mine.x);
+        minesy.add(mine.y);
         mines.add(mine);
     }
 
